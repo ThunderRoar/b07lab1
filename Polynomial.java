@@ -12,11 +12,14 @@ public class Polynomial {
 		coefficients = arr;
 	}
 
+	// Class Methods
 	public Polynomial add(Polynomial p) {
 		int maxLength = Math.max(coefficients.length, p.coefficients.length);
 		double newArr[] = new double[maxLength];
 
 		for (int i = 0; i < maxLength; i++) {
+			// Checks if index does not go out of bounds
+			// as the polynomial arrays can be of different lengths
 			if (i < coefficients.length) {
 				newArr[i] += coefficients[i];
 			} 
@@ -25,7 +28,7 @@ public class Polynomial {
 			}
 		}
 
-		Polynomial sum = new Polynomial(newArr);
+		Polynomial sum = new Polynomial(newArr); // Creating a new Polynomial object to return
 
 		return sum;
 	}
@@ -41,7 +44,4 @@ public class Polynomial {
 	public boolean hasRoot(double x) {
 		return evaluate(x) == 0;
 	}
-
-
-
 }
